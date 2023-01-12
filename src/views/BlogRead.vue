@@ -20,11 +20,11 @@
           <el-form-item align="center">
             <el-col :span="11">
               <span>   分类：</span>
-              <el-button><span> {{ category.categoryName }}</span></el-button>
+              <el-button><span> {{ blogForm.categoryName }}</span></el-button>
             </el-col>
             <el-col :span="11">
               <span>     标签：</span>
-              <el-button v-for="(tag, index) in tagList" :key="index" round>{{ tag.tagName }}</el-button>
+              <el-button v-for="(tag, index) in blogForm.tagList" :key="index" round>{{ tag.tagName }}</el-button>
             </el-col>
           </el-form-item>
           <!--<el-form-item label="描述" prop="description">
@@ -141,10 +141,10 @@ export default {
         readTime: null,
         categoryId: null,
         top: false,
-        password: ''
+        password: '',
+        categoryName: '',
+        tagList: {}
       },
-      tagList: {},
-      category: {},
       userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {},
       blogId: this.$route.params.id,
       comments: [],
@@ -165,10 +165,8 @@ export default {
     // 根据id查询唯一的博客
     getBlogInfo(blogId) {
       getBlogInfoById(blogId).then(res => {
-        // 把查询结果赋值给blogList、tagList、category，使其显示到编辑界面上
-        this.tagList = res.data.tagList
-        this.category = res.data.category
-        this.blogForm = res.data.blog
+        // 把查询结果赋值给blogForm，使其显示到编辑界面上
+        this.blogForm = res.data
         const createTime = this.blogForm.createTime.substring(0, 10)
         this.blogForm.createTime = createTime
       }).catch(() => {

@@ -9,10 +9,10 @@
       </div>
 
       <div align="center">
-        <el-row style="margin: 10px">
+        <el-row style="margin: 5px">
           <el-col :span="6" v-for="(category, index) in categoryList" :key="index"
-                  style=" width: 30%; height: 100px; margin: 20px">
-            <el-card :body-style="{ padding: '0px' }">
+                  style=" width: 30%; margin: 20px">
+            <el-card :body-style="{ padding: '0px' }" style="margin: 10px">
               <img style="margin-top: 10px" src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80"
                    class="image">
               <div style="padding: 14px;">

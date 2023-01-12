@@ -63,12 +63,12 @@
 
       <div align="center">
         <el-pagination
-                background
-                :current-page="pageNum"
-                :page-size="pageSize"
-                layout="total, prev, pager, next"
-                :total="total"
-                @current-change="handleCurrentChange"
+            background
+            :current-page="pageNum"
+            :page-size="pageSize"
+            layout="total, prev, pager, next"
+            :total="total"
+            @current-change="handleCurrentChange"
         />
       </div>
     </div>
